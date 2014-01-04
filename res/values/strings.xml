@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CineDroid</string>
+	<string name="kelvin3200">3200K</string>
+	<string name="kelvin4000">4000K</string>
+	<string name="kelvin5600">5600K</string>
+	<string name="kelvin8000">8000K</string>
+	<string name="auto">AUTO</string>
+	<string name="lock">LOCK</string>
+	<string name="daylight">DAY</string>
+	<string name="tungsten">TUNG</string>
+	
+	<string-array name="Crops">
+		<item>"Off"</item>
+		<item>"1.85"</item>
+		<item>"2.35"</item>
+	</string-array>
+	
+</resources>
