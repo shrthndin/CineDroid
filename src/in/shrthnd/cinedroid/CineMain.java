@@ -18,9 +18,7 @@ import java.io.*;
 import java.text.*;
 import android.media.*;
 import android.graphics.drawable.*;
-import com.apperhand.device.android.AndroidSDKProvider; 
-import com.startapp.android.publish.HtmlAd; 
-import com.startapp.android.publish.model.AdPreferences;
+
 	
 public class CineMain extends Activity 
 {
