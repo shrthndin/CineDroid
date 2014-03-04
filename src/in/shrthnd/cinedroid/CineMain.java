@@ -2,6 +2,7 @@ package in.shrthnd.cinedroid;
 
 /*
 	CineDroid - Android Pro Video Camera
+	Original code by Kris Dawson
 	Copyright (c) 2013 shrthnd interactive/shrthnd.in@gmail.com
 */
 	
@@ -1160,47 +1161,47 @@ public class CineMain extends Activity
 		int keyCode = event.getKeyCode();
 		if(recording)
 		{
-        switch (keyCode) {
-			
-			case KeyEvent.KEYCODE_VOLUME_UP:
-				if (action == KeyEvent.ACTION_DOWN) {
-					if(zoomFactor <= cam.getMaxZoom())
-					{
-						cam.setZoomRatio(zoomFactor);
-						((TextView)findViewById(R.id.btnZoom)).setText(String.format("Z%.2f",(float)zoomFactorList.get(zoomFactor) / 100));
-						zoomFactor++;
+        		switch (keyCode) {
+				
+				case KeyEvent.KEYCODE_VOLUME_UP:
+					if (action == KeyEvent.ACTION_DOWN) {
+						if(zoomFactor <= cam.getMaxZoom())
+						{
+							cam.setZoomRatio(zoomFactor);
+							((TextView)findViewById(R.id.btnZoom)).setText(String.format("Z%.2f",(float)zoomFactorList.get(zoomFactor) / 100));
+							zoomFactor++;
+						}
+						else
+						{
+							zoomFactor = cam.getMaxZoom();
+							cam.setZoomRatio(zoomFactor);
+							((TextView)findViewById(R.id.btnZoom)).setText(String.format("Z%.2f",(float)zoomFactorList.get(zoomFactor) / 100));
+						}
+						
+						Log.v(TAG + "Current Zoom Factor",String.valueOf(zoomFactor));
 					}
-					else
-					{
-						zoomFactor = cam.getMaxZoom();
-						cam.setZoomRatio(zoomFactor);
-						((TextView)findViewById(R.id.btnZoom)).setText(String.format("Z%.2f",(float)zoomFactorList.get(zoomFactor) / 100));
+					return true;
+				case KeyEvent.KEYCODE_VOLUME_DOWN:
+					if (action == KeyEvent.ACTION_DOWN) {
+						if(zoomFactor > 0)
+						{
+							cam.setZoomRatio(zoomFactor);
+							((TextView)findViewById(R.id.btnZoom)).setText(String.format("Z%.2f",(float)zoomFactorList.get(zoomFactor) / 100));
+							zoomFactor--;
+						}
+						else
+						{
+							zoomFactor = 0;
+							cam.setZoomRatio(zoomFactor);
+							((TextView)findViewById(R.id.btnZoom)).setText(String.format("Z%.2f",(float)zoomFactorList.get(zoomFactor) / 100));
+						}
+	
+						Log.v(TAG + "Current Zoom Factor",String.valueOf(zoomFactor));
 					}
-					
-					Log.v(TAG + "Current Zoom Factor",String.valueOf(zoomFactor));
-				}
-				return true;
-			case KeyEvent.KEYCODE_VOLUME_DOWN:
-				if (action == KeyEvent.ACTION_DOWN) {
-					if(zoomFactor > 0)
-					{
-						cam.setZoomRatio(zoomFactor);
-						((TextView)findViewById(R.id.btnZoom)).setText(String.format("Z%.2f",(float)zoomFactorList.get(zoomFactor) / 100));
-						zoomFactor--;
-					}
-					else
-					{
-						zoomFactor = 0;
-						cam.setZoomRatio(zoomFactor);
-						((TextView)findViewById(R.id.btnZoom)).setText(String.format("Z%.2f",(float)zoomFactorList.get(zoomFactor) / 100));
-					}
-
-					Log.v(TAG + "Current Zoom Factor",String.valueOf(zoomFactor));
-				}
-				return true;
-			default:
-				return super.dispatchKeyEvent(event);
-        }
+					return true;
+				default:
+					return super.dispatchKeyEvent(event);
+        		}
 		}
 		else
 		{
